@@ -1,0 +1,29 @@
+extends base
+
+block title
+  title= "search page"
+
+block css
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
+block content
+  h1= title
+  h3 Search page
+  p Welcome to #{title}
+  a(href='users').
+   Go Users
+
+  br
+
+  a(href='search').
+   Go search
+
+  br
+
+  a(href='/').
+   Go index
+
+  p #{content}
+
+block js
+  script(src='/javascripts/main.js')

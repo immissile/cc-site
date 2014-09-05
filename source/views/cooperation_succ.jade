@@ -1,0 +1,17 @@
+extends base
+
+block title
+  title= title
+
+block css
+  link(rel='stylesheet', href='/stylesheets/cooperation.css')
+  <!--[if lt IE 9]>
+  link(rel='stylesheet', href='/stylesheets/ie.css')
+  <![endif]-->
+
+block page 
+  div.page
+    include includes/header
+    .box.succ-wrap.center
+      h2 您的合作信息已提交，我们的商务经理会尽快联系您，请保持电话畅通。
+      a(href="/") 回到首页

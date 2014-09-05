@@ -1,0 +1,144 @@
+@import "./common";
+
+html, body {
+  overflow: auto;
+}
+
+a {
+  color: #248DC9;
+  text-decoration: none;
+}
+.center {
+  text-align: center;
+}
+.btn {
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  background: #eee;
+  padding: 5px 15px;
+  outline: none;
+  &:hover {
+    border: 1px #ccc solid;
+    background: #ddd;
+  }
+}
+
+.msg-text {
+  padding-left: 10px;
+  color: #c43;
+}
+
+.box {
+  max-width: 800px;
+  height: auto;
+  overflow: auto;
+  margin: 8% auto;
+  padding: 20px;
+  background: #F8F8F8;
+  border-radius: 5px;
+
+  .pull-left, .pull-right {
+    height: 100%;
+    h2 {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  .pull-left {
+    .contact-box {
+      padding-left: 20px;
+    }
+    width: 60%;
+    h2 {
+      color: #333;
+      padding-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      tr td {
+        padding: 8px 0;
+        &.tit {
+          width: 90px;
+        }
+      }
+    }
+    input[type=text], input[type=password] {
+      padding: 7px;
+      width: 230px;
+      border: 1px #ccc solid;
+      background-repeat: no-repeat;
+      background-position: 215px center;
+      &.error {
+        border: 1px #c43 solid;
+        background-image: url(/images/error.png);
+      }
+      &.succ {
+        background-image: url(/images/correct.png);
+      }
+    }
+  }
+  .pull-right {
+    width: 40%;
+    .call-us {
+      padding-left: 30px;
+      border-left: 1px #ccc solid;
+      height: 250px;
+      color: #666;
+      h2 {
+        padding: 50px 0 10px;
+        vertical-align: middle;
+        img {
+          display: inline-block;
+          vertical-align: top;
+          width: 20px;
+          padding-right: 5px;
+        }
+      }
+      .caller {
+        height: auto;
+        overflow: auto;
+        margin-top: 40px;
+        img {
+          display: inline-block;
+          float: left;
+          width: 70px;
+        }
+        .phone-list {
+          float: left;
+          padding-left: 15px;
+          p {
+            margin: 0;
+            padding: 7px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.box.succ-wrap {
+  background: transparent;
+  h2 {
+    font-size: 15px;
+    font-weight: normal;
+    padding-bottom: 30px;
+    color: #666;
+  }
+  a {
+    color: #0E62A5;
+    text-decoration: none;
+    &:hover {
+      color: #c43;
+    }
+  }
+}
+
+.login-name {
+  color: #666;
+  padding-right: 10px;
+}
+
+.bar-right.show-more {
+  display: none;
+}

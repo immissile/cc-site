@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/joinUs.css')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0')
+  body
+    .container
+      .content
+        a(href='/').logo
+          img(src='images/loading.png')
+        .space-10.top-space
+        div !{hr.content}
+
+
+          .footer
+            p.center
+              | ©2013 云信(北京)信息咨询有限公司 &nbsp;
+              a(href='http://www.miitbeian.gov.cn/', target='_blank') 苏ICP备13032969号
+
+    include analytics

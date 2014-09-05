@@ -1,0 +1,49 @@
+extends includes/base
+
+block title
+  title= title
+
+block css
+  link(rel='stylesheet', href='/stylesheets/cooperation.css')
+  <!--[if lt IE 9]>
+  link(rel='stylesheet', href='/stylesheets/ie.css')
+  <![endif]-->
+
+block page 
+  div.page
+    include includes/header
+    .box
+      .pull-left
+        .contact-box
+          h2 登陆云信管理后台
+          form(method="POST", action="/admin/login#{from}")
+            table
+              tr
+                td.tit 登录账号：
+                td
+                  input#name(type="text", name="name", value="")
+              tr
+                td.tit 登录密码：
+                td
+                  input#password(type="password", name="password", value="")
+              tr
+                td.tit &nbsp;
+                td
+                  button.btn(type="submit") 登录
+                  if error
+                    span.msg-text #{error}
+      .pull-right
+        .call-us(style="height: 220px")
+          h2.call-title.center(style="padding-top: 100px")
+            img(src="/images/mail-64.png")
+            | 注册账号请联系管理员
+          //
+            .caller.center
+              p CreditCloud.com All Rights Reserved
+
+block js
+  script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
+  script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
+  script(src='/javascripts/common/config.js')
+  script seajs.use('/javascripts/src/admin.js');
+

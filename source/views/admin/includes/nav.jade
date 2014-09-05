@@ -1,0 +1,16 @@
+.nav.main-nav
+  .main-nav-in
+    ul
+      if active.cooperation
+        li.active
+          a(href="/admin") 商务合作
+      else
+        li
+          a(href="/admin") 商务合作
+
+      if active.hr
+        li.active
+          a(href="/admin/hr") 招聘相关
+      else
+        li
+          a(href="/admin/hr") 招聘相关

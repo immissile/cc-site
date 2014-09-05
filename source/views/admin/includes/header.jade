@@ -1,0 +1,8 @@
+header.s-header
+  .inner.clearfix
+    a(href="/")
+      img.logo(src='/images/loading.png')
+    .bar-right.show-more
+      if user
+        span.login-name #{user.name}
+        a(href="/admin/logout?id=#{user._id}") 退出

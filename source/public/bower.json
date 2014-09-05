@@ -1,0 +1,33 @@
+{
+  "name": "cc-new-www",
+  "version": "0.0.0",
+  "homepage": "https://github.com/immissile/cc-new-www",
+  "authors": [
+    "immissile <shaohualou@gmail.com>"
+  ],
+  "description": "cc new website",
+  "main": "index.js",
+  "keywords": [
+    "creditcloud"
+  ],
+  "license": "private",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+    "moment": "~2.8.2",
+    "fontawesome": "~4.2.0",
+    "flexslider": "*",
+    "jquery.countdown": "~2.0.4",
+    "isotope": "~2.0.0",
+    "easing": "*"
+  }
+}

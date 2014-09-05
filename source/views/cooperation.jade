@@ -1,0 +1,53 @@
+extends base
+
+block title
+  title= title
+
+block css
+  link(rel='stylesheet', href='/stylesheets/cooperation.css')
+  <!--[if lt IE 9]>
+  link(rel='stylesheet', href='/stylesheets/ie.css')
+  <![endif]-->
+
+block page 
+  div.page
+    include includes/header
+    .box
+      .pull-left
+        .contact-box
+          h2 您可以留下您的联系方式，我们会在24小时内与您取得联系
+          form(method="post", action="/cooperation/new")
+            table
+              tr
+                td.tit 联系人姓名：
+                td
+                  input#name(type="text", name="cooperation[name]", value="")
+              tr
+                td.tit 联系人电话：
+                td
+                  input#mobile(type="text", name="cooperation[mobile]", value="")
+              tr
+                td.tit 您的公司名：
+                td
+                  input#company(type="text", name="cooperation[company]", value="")
+              tr
+                td.tit &nbsp;
+                td
+                  button.btn(type="submit") 提交
+      .pull-right
+        .call-us
+          h2.call-title 
+            img(src="/images/phone-64.png")
+            | 您也可以直接拨打我们的商务经理电话
+          .caller
+            img(src="/images/bubbles.png")
+            .phone-list
+              p 周经理：18510511852
+              p 李经理：18513535120
+
+block js
+  script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
+  script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
+  script(src='/javascripts/common/config.js')
+  script seajs.use('/javascripts/src/cooperation.js');
+

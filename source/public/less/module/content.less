@@ -1,0 +1,692 @@
+//@import "../common/animate-3d";
+.section {
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+}
+section.container {
+}
+section .sub-page {
+  background-color: #F7F7F7;
+  margin-top: 75px;
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.container-in {
+  overflow: auto;
+  margin: 0 auto;
+  //max-width: 1280px;
+  position: relative;
+}
+
+.slider {
+  position: relative;
+  height: 100%;
+
+  .slider-title {
+    position: absolute;
+  }
+
+  .home-slider {
+    width: 400px;
+    min-height: 200px;
+    left: 10%;
+    top: 25%;
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 2s;
+    -vendor-animation-iteration-count: infinite;
+
+    h2 {
+      margin: 0;
+      padding-bottom: 10px;
+    }
+  }
+
+  h2 {
+    font-size: 2.6em;
+    font-weight: bold;
+  }
+  p {
+    padding: 10px 0;
+    color: #777;
+  }
+}
+
+
+.sub-body {
+  width: 100%;
+  height: 100%;
+  .animate-in(1.0s);
+}
+.animate-text {
+  position: absolute;
+  z-index: 10;
+  width: 300px;
+  height: auto;
+  //left: -400px;
+  left: 10%;
+  opacity: 0;
+  top: 30%;
+
+  h2 {
+    padding-bottom: 30px;
+    font-size: 2.0em;
+  }
+  h2.h2-focus {
+  }
+  p {
+    color: #444;
+  }
+
+  ul li {
+    list-style: none;
+    padding: 8px 0 5px 35px;
+    background: url(/images/arrow-right.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 15px;
+    cursor: pointer;
+    .animate-in();
+    &:hover {
+      color: #d29829;
+      background-image: url(/images/arrow-right-grey.png);
+      background-position: 5px center;
+    }
+  }
+}
+
+// 关于团队
+.team-wrap {
+  margin-left: 300px;
+  height: 100%;
+
+  .team-top {
+    width: 100%;
+    height: 50%;
+
+    .pull-left, .pull-right {
+      width: 50%;
+      height: 100%;
+    }
+    .pull-left {
+      table tr td {
+        width: 50%;
+      }
+    }
+    .pull-right {
+    }
+  }
+  .team-bottom {
+    width: 100%;
+    height: 50%;
+
+    .pull-left, .pull-right {
+      height: 100%;
+    }
+    .pull-left {
+      width: 75%;
+    }
+    .pull-right {
+      width: 25%;
+    }
+  }
+
+  .ava-tar {
+    width: 100%;
+    height: 100%;
+  }
+
+  .team-in-list {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    float: left;
+    background-color: #f7f7f7;
+
+    .team-in-t {
+      position: relative;
+      width: 100%;
+      height: 50%;
+      float: left;
+      clear: both;
+    }
+    .team-in-b {
+      position: relative;
+      width: 100%;
+      height: 50%;
+      float: left;
+      clear: both;
+    }
+
+    &.team-list-a {
+    }
+    &.team-list-b {
+    }
+  }
+  .team-ava-wp {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ava {
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+      &.ava-1 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/ed472d26652d91a07eccc1724cfab903);
+      }
+      &.ava-2 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/d04ee5d6618720f00166398d57d04282);
+      }
+      &.ava-3 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/f2bd5ca6d3d7bf6f4e4943dbfe6497f7);
+      }
+      &.ava-4 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/4b7251c392be9db5163270b98ec04595);
+      }
+      &.ava-5 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/d9e12cd6b90d84008b9a4e3abc3db3d3);
+      }
+      &.ava-6 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/323b8ebd0be44d14954e5740cc239d69);
+      }
+      &.ava-7 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/e1ccd96a97c97415ee427738f663d28b);
+      }
+      &.ava-8 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/fef51c30b8e688e7603393ed9fa77f10);
+      }
+      &.ava-9 {
+        background-image: url(http://creditmanager.b0.upaiyun.com/71ac453b89344a7d2208e9b68f5e00cc);
+      }
+  }
+
+  .ava-in {
+    position: absolute;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background: #e0d0ac;
+    text-align: center;
+    display: none;
+    margin-top: 0;
+    float: left;
+
+    h3 {
+      font-size: 1.8em;
+      font-weight: normal;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+  [class*=" ava-"], [class^=ava-] {
+    cursor: pointer;
+  }
+
+  .bg-grey {
+    background-color: #d1d1d1;
+  }
+
+}
+
+.focus-bg-1, .tech-bg-1, .site-bg-1, .client-bg-1, .oper-bg-1 {
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// 专注性
+.focus-bg-1 {
+  //background-image: url(/images/cc-focus-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/b8d44ba7800e6de06f0845ffa500deda);
+}
+
+// 技术与安全
+.tech-bg-1 {
+  //background-image: url(/images/cc-tech-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/e23eb3bc7db8cffb0a83e6e002e91eac);
+}
+// 网站
+.site-bg-1 {
+  //background-image: url(/images/banners/site-bg-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/ea2d9d806d648bce568f02492dc50c4c);
+}
+// 客户端
+.client-bg-1 {
+  //background-image: url(/images/banners/client-bg-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/9e365e082219be5c990b0bcd544fc9ec);
+}
+// 运营
+.oper-bg-1 {
+  //background-image: url(/images/banners/oper-bg-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/b32f3daa41743a615fb76479bb13b38e);
+}
+
+
+// detail page
+.detail-page {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  background-color: #edeeef;
+
+  button.hide-detail {
+    display: inline-block;
+    position: absolute;
+    z-index: 30;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    background-image: url(/images/arrow-light-left.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px;
+    border: none;
+    outline: none;
+  }
+
+  .detail-banner {
+    max-height: 450px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .detail-content {
+    text-align: center;
+
+    h2 {
+      font-size: 2.0em;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-weight: normal;
+    }
+
+    p {
+      color: #555;
+    }
+  }
+
+  .space-100 {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.hr-content {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+// 典型客户
+.evaluate-text {
+}
+.evaluate-wrap {
+  width: 66.666666%;
+  height: 100%;
+  margin-left: 33.33333%;
+  //background-image: url(/images/banners/customers-bg-1.jpg);
+  background-image: url(http://creditmanager.b0.upaiyun.com/14751225c8d89c4be480d30cf1bfd822);
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .video-start {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url(/images/video-icon.png);
+    background-color: transparent;
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    cursor: pointer;
+  }
+}
+
+.partner-wrap {
+  width: 90%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow-y: auto;
+
+  ul.partner-list{}
+  ul.partner-list li {
+    list-style: none;
+    height: 150px;
+    margin-bottom: 40px;
+    position: relative;
+    background-color: #fff;
+  }
+  ul.partner-list li:first-child {
+    margin-top: 40px;
+  }
+  ul.partner-list li:hover {
+  }
+  ul.partner-list li img {
+    height: 100%;
+  }
+
+  .partner-img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 0;
+    top: 0;
+  }
+  .partner-content {
+    margin-left: 150px;
+    height: 150px;
+
+    .cus-title, .cus-type, .cus-dec {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .cus-title {
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    .cus-type {
+      padding-bottom: 5px;
+      a {
+        color: #6090b1;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      a:hover {
+        color: @red;
+      }
+    }
+    .cus-dec {
+      padding-bottom: 25px;
+      font-size: 13px;
+
+      p {
+        padding-top: 0;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// 更多
+.more-wrap {
+  position: absolute;
+  z-index: 150;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, .7);
+  opacity: 0;
+
+  .more-content {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    background: #fff;
+    margin-top: -400px;
+
+    .more-close {
+      position: absolute;
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background-color: transparent;
+      background-image: url(/images/arrow-light-up.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    table tr td {
+      text-align: center;
+    }
+
+    .more-list {
+      padding-top: 50px;
+
+      h2 {
+        font-weight: normal;
+        font-size: 1.8em;
+        margin-bottom: 0;
+      }
+      .title-border {
+        margin-bottom: 22px;
+
+        div {
+          width: 40px;
+          height: 3px;
+          background: #333;
+          margin: 0 auto;
+        }
+      }
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+        padding-bottom: 5px;
+        color: #444;
+      }
+      h3 {
+        margin: 0;
+        padding: 0;
+        margin-top: 40px;
+        font-size: 13px;
+        color: #333;
+        .animate-in();
+
+        span {
+          display: inline-block;
+          height: 20px;
+          vertical-align: top;
+          cursor: pointer;
+        }
+        span:first-child {
+          width: 20px;
+          background-image: url(/images/arrow-right.png);
+          background-size: 90%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: transparent;
+        }
+        span:last-child {
+          width: auto;
+          line-height: 20px;
+          padding-left: 10px;
+        }
+        &:hover {
+          color: #d29829;
+          span:first-child {
+            .animate-in(0.3s);
+            background-image: url(/images/arrow-right-grey.png);
+          }
+        }
+      }
+    }
+    p.icp-info {
+      color: #7C7C7C;
+      text-align: center;
+      margin: 50px 50px;
+      border-top: 1px solid #eee;
+      padding-top: 35px;
+    }
+  } // end more-content
+}
+
+.more-page {
+  h2.main-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+
+  .detail-content p {
+    padding-bottom: 3px;
+    line-height: 12px;
+    color: #666;
+    font-size: 13px;
+  }
+
+  .desc p {
+    width: 50%;
+    margin: auto;
+    line-height: 2;
+  }
+
+  .detail-content .contact-email {
+    font-size: 15px;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+
+  .sub-title {
+    margin-bottom: 20px;
+    div {
+      max-width: 400px;
+      border: 1px #ddd solid;
+      border-left: none;
+      border-right: none;
+      padding: 5px 10px;
+      margin: 0 auto;
+      margin-top: 70px;
+    }
+  }
+
+  img.map {
+    width: 300px;
+  }
+
+  table.tb-joinus {
+    max-width: 500px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+  table.tb-joinus tr td {
+    padding: 8px 25px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      height: 20px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #222;
+      font-size: 12px;
+      span {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        vertical-align: top;
+        background-image: url(/images/arrow-right.png);
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+      }
+    }
+    a:hover {
+      .animate-in();
+      color: @red;
+      span {
+        .animate-in(0.3s);
+        background-image: url(/images/arrow-right-grey.png);
+      }
+    }
+  }
+}
+
+
+.ie-icon {
+  display: none;
+}
+
+.btn {
+  text-decoration: none;
+  border: 1px #ccc solid;
+  border-radius: 4px;
+  padding: 8px 15px;
+  background-color: #fff;
+  color: #333;
+  &:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #333;
+  }
+  &.btn-super {
+    padding: 15px 30px;
+    vertical-align: bottom;
+    margin-top: 10px;
+    background: #d15b47;
+    border: 1px #d15b47 solid;
+    color: #eee;
+    font-size: 18px;
+    .animate-in();
+    &:hover {
+      background: #b74635;
+      color: #fff;
+    }
+  }
+  img {
+    display: inline-block;
+    width: 20px;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cc-www",
+  "version": "0.0.0",
+  "description": "CreditCloud官网",
+  "main": "Gruntfile.js",
+  "homepage": "www.creditcloud.com",
+  "private": true,
+  "dependencies": {
+    "grunt": "*",
+    "grunt-contrib-imagemin": "~0.7.0",
+    "grunt-img": "~0.1.8",
+    "imagemin-mozjpeg": "~0.1.2",
+    "browserify": "*",
+    "grunt-browserify": "*",
+    "coffee-script": "*",
+    "express": "3.4.7",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-jade": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
+    "jade": "*",
+    "less": "*",
+    "less-middleware": "~1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CreditCloud"
+  ],
+  "author": "missile <shaohualou@gmail.com>",
+  "license": "BSD-2-Clause"
+}
