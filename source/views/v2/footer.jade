@@ -34,11 +34,19 @@ footer#footer
       div.col-sm-4.contact
         h3.footer_header
           | 关注我们
-        form(action='#', method='post')
-          input(type='text', placeholder='Your name')
-          input(type='text', placeholder='Your email')
-          textarea(rows='3', placeholder='Message')
-          input(type='submit', value='Send')
+        table.sns
+          tr
+            td
+              a.weibo(href='', target='_blank')
+                img(src='/images/v2/weibo-64-d.png', data-c-src='/images/v2/weibo-64.png', data-d-src='/images/v2/weibo-64-d.png')
+            td 
+              a.weibo(href='', target='_blank') 关注官方微博
+          tr
+            td
+              a.weixin(href='', target='_blank')
+                img(src='/images/v2/weixin-64-d.png', data-c-src='/images/v2/weixin-64.png', data-d-src='/images/v2/weixin-64-d.png')
+            td
+              a.weixin(href='', target='_blank') 关注官方微信
     div.row.credits
       div.col-md-12
         div.row.copyright

@@ -2,6 +2,11 @@
   var portfolioItem, servicesCircle, staticHeader;
 
   $(function() {
+    $("table.sns td img").hover(function() {
+      return $(this).attr('src', $(this).data('c-src'));
+    }, function() {
+      return $(this).attr('src', $(this).data('d-src'));
+    });
     $(window).scroll(function() {
       if ($(".navbar").offset().top > 30) {
         $(".navbar-fixed-top").addClass("sticky");

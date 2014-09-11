@@ -1,0 +1,14 @@
+extends base
+
+block css
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/index.css')
+
+block page 
+  | page xxxxxx
+
+
+block js
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/javascripts/v2/theme.js')
+  script(src='/javascripts/v2/slider.js')

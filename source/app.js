@@ -5,7 +5,7 @@ App Interface
 
 
 (function() {
-  var Cooperation, access, admin, api, app, cooperation, detail, express, http, joinUs, mongoose, path, routes;
+  var Cooperation, access, admin, api, app, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services;
 
   express = require("express");
 
@@ -63,6 +63,13 @@ App Interface
     return next();
   });
 
+  global.active = {};
+
+  global.setNav = function(_nav) {
+    global.active = {};
+    return global.active[_nav] = 'active';
+  };
+
   app.use(app.router);
 
   app.use(require("less-middleware")({
@@ -80,6 +87,12 @@ App Interface
 
   routes = require("./routes");
 
+  product = require("./routes/product");
+
+  services = require("./routes/services");
+
+  customers = require("./routes/customers");
+
   detail = require("./routes/detail");
 
   joinUs = require("./routes/joinUs");
@@ -93,6 +106,12 @@ App Interface
   app.get("/", routes.index);
 
   app.get(/^\/page-*?(?:\/(\d+)(?:\.\.(\d+))?)?/, routes.index);
+
+  app.get("/product", product.index);
+
+  app.get("/services", services.index);
+
+  app.get("/customers", customers.index);
 
   app.get("/cooperation", cooperation.index);
 

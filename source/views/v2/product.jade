@@ -1,0 +1,52 @@
+extends base
+
+block css
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/features.css')
+
+block page 
+  div#features.features_page
+    div.container
+      // Feature Wrapper
+      div.feature_wrapper.option1
+        div.section_header
+          h3 产品介绍
+        div.row.feature
+          div.col-sm-6
+            img.img-responsive(src='/images/v2/showcase1.png')
+          div.col-sm-6.info
+            h3
+              img(src='/images/v2/features-ico1.png')
+              | 前端——信贷交易市场
+            p 使⽤GRUNT、BOOTSTRAP等先进的前端技术⼯工具实现更好的B/S使⽤用体验。<br />可以添加任何您想要的页面互动效果，让您的客户可以体验到您网站的专业服务，提升客户对于您公司的信任度。<br />另外，我们还提供信贷移动端，可以让您的客户在手机和平板电脑上体验您的服务。
+        div.row.feature.last
+          div.col-sm-6.pic-right
+            img.pull-right.img-responsive(src='/images/v2/product/u32.jpg')
+          div.col-sm-6.info.info-left
+            h3
+              img(src='/images/v2/features-ico2.png')
+              | 后台——信贷管理中心
+            p 完善的内部管理系统，可以灵活的配置各类网贷的业务流程；提升您公司整体的运作效率。
+            p 操作留痕，可以快速查找任何一个操作的来源；对于业务的灵活性以及安全性有足够的保障。
+        div.row.feature
+          .col-sm-6
+            img.img-responsive(src='/images/v2/product/u38.jpg', style='margin-top: 56px;')
+          .col-sm-6.info
+            h3
+              img(src='/images/v2/features-ico3.png')
+              | 移动端——移动信贷交易
+            p 帮您快速占领移动互联网市场，同时支持安卓及ios系统。
+            p 实时同步信贷交易市场数据，用户可以随时进行投资；
+        div.row.feature.last
+          div.col-sm-6.pic-right
+            img.pull-right.img-responsive(src='/images/v2/product/u42.jpg')
+          div.col-sm-6.info.info-left
+            h3
+              img(src='/images/v2/features-ico2.png')
+              | 信审设备——移动数据采集
+            p 借款人信息采集APP，可以让您的工作人员在外部一样可以快速、准确的完成借款人的信息采集。<br />包含了摄像头采集、图片打码、语音转文字、电子合同等等进行现场信息采集。<br />GPS定位信审设备，便于员工工作状况管理。
+
+block js
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/javascripts/v2/theme.js')
+  script(src='/javascripts/v2/slider.js')

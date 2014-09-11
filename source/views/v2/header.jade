@@ -10,36 +10,17 @@
         img(src='/images/logo-mobile.png')
     .collapse.navbar-collapse.navbar-ex1-collapse(role='navigation')
       ul.nav.navbar-nav.navbar-right
-        li.active
-          a(href='index.html') 首页
-        li
-          a(href='about-us.html') 产品 
-        li.dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | 服务
-            b.caret
-          ul.dropdown-menu
-            li
-              a(href='features.html') Features
-            li
-              a(href='services.html') Services
-            li
-              a(href='portfolio.html') Portfolio
-            li
-              a(href='portfolio-item.html') Portfolio Item
-            li
-              a(href='coming-soon.html') Coming Soon
-            li
-              a(href='sign-in.html') Sign in
-            li
-              a(href='sign-up.html') Sign up
-            li
-              a(href='backgrounds.html') Backgrounds
-        li
-          a(href='pricing.html') 团队
-        li
-          a(href='contact.html') 客户
-        li
-          a(href='blog.html') 联系我们
-        li.cooperation
+        li(class='#{global.active.home}')
+          a(href='/') 首页
+        li(class='#{global.active.product}')
+          a(href='/product') 产品 
+        li(class='#{global.active.services}')
+          a(href='/services') 服务
+        li(class='#{global.active.team}')
+          a(href='/team') 团队
+        li(class='#{global.active.customers}')
+          a(href='/customers') 客户
+        li(class='#{global.active.contact}')
+          a(href='/contact') 联系我们
+        li.cooperation(class='#{global.active.cooperation}')
           a(href='/cooperation') 商务合作

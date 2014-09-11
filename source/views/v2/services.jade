@@ -1,0 +1,101 @@
+extends base
+
+block css
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/services.css')
+
+block page 
+  #service_1
+    .container
+      .section_header
+        h3 服务内容
+      .row.service_wrapper
+        .col-sm-6
+          .feature
+            .img_box.f1
+              img.img-responsive(src='images/v2/service_ico1.png')
+            .text
+              h6 业务咨询
+              p 云中信具备丰富的业务咨询经验，协助多家互联网金融机构进行业务设计；结合客户本身特点，协助设计业务流程及方案。
+              p 方案改进：对业务运营中的价格费用标准进行建模计算，提供合理化建议。实际操作中协调其他第三方供应商，降低综合成本。
+        .col-sm-6
+          .feature
+            .img_box.f2
+              img.img-responsive(src='images/v2/service_ico2.png')
+            .text
+              h6 升级推送
+              p 服务多家行业高端机构，掌握行业最新需求，同时依靠云中信专业高效的开发产品团队，持续集成新的功能；
+              p 云中信会保持产品的跟新，已满足P2P行业的发展需要和适应政策要求。
+      .row.service_wrapper
+        .col-sm-6
+          .feature.last
+            .img_box.f3
+              img.img-responsive(src='images/v2/service_ico3.png')
+            .text
+              h6 系统搭建
+              p 公司研发的P2P网贷系统，具备完善的功能，高度模块化设计，配置灵活，支持多种业务模式。
+              p 实施效率极高，系统安全可靠。
+        .col-sm-6
+          .feature
+            .img_box.f1
+              img.img-responsive(src='images/v2/service_ico1.png')
+            .text
+              h6 托管运维 
+              p 提供服务器、网络宽带支持；数据备份、网络安全监控；7×24小时可用性维护；
+              p 专业运维工程师，丰富的互联网金融运维经验，提供专业有效的服务；
+              p JIRA、Splunk、 监控宝等专业协同工具，更专业的服务品质。
+
+  #contrast
+    .container
+      .section_header
+        h3 竞品对比
+      .row
+        table.table.table-bordered.table-hover
+          thead
+            tr
+              th 供应商
+              th 云中信网贷P2P系统
+              th 一般网贷P2P系统
+          tbody
+            tr
+              td 使用终端
+              td PC端+移动端+移动工作端
+              td PC端
+            tr
+              td 使用终端
+              td PC端+移动端+移动工作端
+              td PC端
+            tr
+              td
+              td
+              td
+
+  #clients
+    .container
+      .section_header
+        h3 战略合作伙伴
+      .row
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client1
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client2
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client3
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client4
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client5
+        .col-md-2.col-sm-4.client
+          a(href='#')
+            .img.client6
+
+
+block js
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/javascripts/v2/theme.js')
+  script(src='/javascripts/v2/slider.js')

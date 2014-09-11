@@ -1,4 +1,10 @@
 $ ->
+  # footer icon hover
+  $("table.sns td img").hover ->
+    $(@).attr 'src', $(@).data('c-src')
+  , ->
+    $(@).attr 'src', $(@).data('d-src')
+
   $(window).scroll ->
     if $(".navbar").offset().top > 30
       $(".navbar-fixed-top").addClass "sticky"

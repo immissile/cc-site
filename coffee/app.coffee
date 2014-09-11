@@ -51,6 +51,11 @@ app.use (req, res, next) ->
 
   next()
 
+global.active = {}
+global.setNav = (_nav) ->
+  global.active = {}
+  global.active[_nav] = 'active'
+
 app.use app.router
 app.use(
   require("less-middleware")(
@@ -68,6 +73,9 @@ app.use express.static(path.join(__dirname, "public"))
 app.use express.errorHandler()  if "development" is app.get("env")
 
 routes = require("./routes")
+product = require("./routes/product")
+services = require("./routes/services")
+customers = require("./routes/customers")
 detail = require("./routes/detail")
 joinUs = require("./routes/joinUs")
 cooperation = require("./routes/cooperation")
@@ -78,6 +86,10 @@ api = require("./routes/api")
 app.get "/", routes.index
 app.get /^\/page-*?(?:\/(\d+)(?:\.\.(\d+))?)?/, routes.index
 #app.get "/user*?", routes.index
+
+app.get "/product", product.index
+app.get "/services", services.index
+app.get "/customers", customers.index
 
 # detail 
 #app.get "/detail*?", detail.list
