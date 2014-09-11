@@ -1,7 +1,7 @@
+
 /*
 GET joinUs page.
-*/
-
+ */
 
 (function() {
   var Hr;
