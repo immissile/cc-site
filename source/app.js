@@ -1,11 +1,11 @@
-
 /*
 Module dependencies.
 App Interface
- */
+*/
+
 
 (function() {
-  var Cooperation, access, admin, api, app, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services;
+  var Cooperation, access, admin, api, app, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team;
 
   express = require("express");
 
@@ -93,6 +93,8 @@ App Interface
 
   customers = require("./routes/customers");
 
+  team = require("./routes/team");
+
   detail = require("./routes/detail");
 
   joinUs = require("./routes/joinUs");
@@ -112,6 +114,8 @@ App Interface
   app.get("/services", services.index);
 
   app.get("/customers", customers.index);
+
+  app.get("/team", team.index);
 
   app.get("/cooperation", cooperation.index);
 

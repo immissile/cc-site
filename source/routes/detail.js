@@ -1,7 +1,7 @@
-
 /*
 GET detail listing.
- */
+*/
+
 
 (function() {
   exports.list = function(req, res) {
