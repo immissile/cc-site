@@ -5,7 +5,7 @@ App Interface
 
 
 (function() {
-  var Cooperation, access, admin, api, app, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team;
+  var Cooperation, access, admin, api, app, contact, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team;
 
   express = require("express");
 
@@ -95,6 +95,8 @@ App Interface
 
   team = require("./routes/team");
 
+  contact = require('./routes/contact');
+
   detail = require("./routes/detail");
 
   joinUs = require("./routes/joinUs");
@@ -116,6 +118,8 @@ App Interface
   app.get("/customers", customers.index);
 
   app.get("/team", team.index);
+
+  app.get("/contact", contact.index);
 
   app.get("/cooperation", cooperation.index);
 

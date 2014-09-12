@@ -77,6 +77,7 @@ product = require("./routes/product")
 services = require("./routes/services")
 customers = require("./routes/customers")
 team = require("./routes/team")
+contact = require('./routes/contact')
 detail = require("./routes/detail")
 joinUs = require("./routes/joinUs")
 cooperation = require("./routes/cooperation")
@@ -92,6 +93,7 @@ app.get "/product", product.index
 app.get "/services", services.index
 app.get "/customers", customers.index
 app.get "/team", team.index
+app.get "/contact", contact.index
 
 # detail 
 #app.get "/detail*?", detail.list

@@ -1,0 +1,47 @@
+extends base
+
+block css
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/contact.css')
+
+block page 
+  #contact
+    .container
+      .section_header
+        h3 联系我们
+      .row.contact
+        p 留下您的联络方式，我们会及时联系您！
+        form
+          .row.form
+            .col-sm-6.row-col
+              .box
+                input.name.form-control(type='text', name='name', placeholder='姓名/称呼')
+                input.mail.form-control(type='text', name='email', placeholder='电子邮箱')
+                input.phone.form-control(type='text', name='phone', placeholder='手机号码')
+                input.company.form-control(type='text', name='company', placeholder='公司名称')
+            .col-sm-6
+              .box
+                textarea.form-control(name='remark', placeholder='备注信息')
+          .row.submit
+            .col-md-5.box
+            .col-md-3.right
+              input(type='submit', value='确认无误，提交信息')
+
+    .container
+      .section_header
+        h3 商务合作
+      .row.contact.cooperation
+        h4 地址：
+        p 北京：西直门外大街18号金贸大厦A座1626<br> 电话：010-88334133
+        p 上海：西直门外大街18号金贸大厦A座1626<br> 电话：010-88334133
+        p 深圳：西直门外大街18号金贸大厦A座1626<br> 电话：010-88334133
+
+        h4 商务联系
+        p 周经理：18510511852 &nbsp;&nbsp;&nbsp; kaiyin.zhou@creditcloud.com
+        p 李经理：18513535120 &nbsp;&nbsp;&nbsp; hilary.lee@creditcloud.com
+
+
+
+block js
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/javascripts/v2/theme.js')

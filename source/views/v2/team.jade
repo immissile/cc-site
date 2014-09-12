@@ -1,14 +1,156 @@
 extends base
 
 block css
-  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/index.css')
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/team.css')
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/flexslider.css')
 
 block page 
-  | team page
+  div#aboutus
+    div.container
+      div.section_header
+        h3 关于我们
+      div.row
+        div.col-sm-6.intro
+          h5 苏州云中信信息技术有限公司
+          p 注册资本500万，成立于2013年4月28日，在北京、上海、深圳三地有分公司；
+          p 主要团队成员来自华尔街知名金融IT服务机构，具备多年数据处理、金融软件开发经验；
+          p 自身定位 “ 专业第三方 ” ，提供业务咨询、 P2P网贷系统实施以及持续运维的综合解决方案；主要服务于行业高端客户。
+          p 目前公司已经获得国内顶级VC联想投资千万级别风险投资。
+        div.col-sm-6
+          div.flexslider
+            ul.slides
+              li
+                img(src='/images/v2/about_slide1.jpg')
+              li
+                img(src='/images/v2/about_slide1.jpg')
+              li
+                img(src='/images/v2/about_slide1.jpg')
+
+
+  #service_1
+    .container
+      .section_header
+        h3 团队介绍
+      .row.service_wrapper.boss
+        .col-sm-6
+          .feature
+            .img_box
+              img.img-responsive(src='/images/team/boss.png')
+        .col-sm-6
+          .feature
+            .text
+              h6 陈忞
+                span Founder & CEO
+              p 毕业于清华大学计算机系
+              p 曾于摩根斯坦利国际资本MSCI任职副总裁，为MSCI China最早一批成员，负责大规模金融数据处理及风险管理系统软件的研究与开发。
+              p 9年开发经验，擅长大规模数据处理和分布式系统设计；7年以上的技术团队管理经验，对金融领域的软件开发体系建设具有相当的实践经验, 多年P2P领域投资经验。
+
+      .row.service_wrapper
+        .col-sm-4
+          .feature
+            .img_box
+              img.img-responsive(src='/images/team/1.png')
+            .text
+              h6 陈浩
+              p 系统架构师
+        .col-sm-4
+          .feature
+            .img_box
+              img.img-responsive(src='/images/team/2.png')
+            .text
+              h6 刘伟博
+              p 前端工程师
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/ma.png')
+            .text
+              h6 马雪明
+              p Android & IOS 工程师
+
+      .row.service_wrapper
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/4.png')
+            .text
+              h6 娄少华
+              p 前端工程师
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/6.png')
+            .text
+              h6 王宇
+              p 前端工程师
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/9.png')
+            .text
+              h6 周开印
+              p 商务经理
+      .row.service_wrapper
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/9.png')
+            .text
+              h6 周开印
+              p 商务经理
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/9.png')
+            .text
+              h6 周开印
+              p 商务经理
+        .col-sm-4
+          .feature.last
+            .img_box
+              img.img-responsive(src='/images/team/9.png')
+            .text
+              h6 周开印
+              p 商务经理
+
+
+
+  div#process
+    div.container
+      div.section_header
+        h3 企业文化
+      div.row.services_circles
+        div.col-sm-4.description
+          div.text.active
+            h4 精心
+            p
+              | There are many variations of passages of  this suffered alteration in some form, by injected look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to making this the first true generator  Internet.
+          div.text
+            h4 细心
+            h5 
+            p
+              | There are many variations of passages of  this suffered alteration in some form, by injected look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to
+              | making this the first true generator  Internet.
+          div.text
+            h4 用心
+            p
+              | There are many variations of passages of  this suffered alteration in some form, by injected look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to making this the first true generator  Internet.
+        div.col-sm-7.areas
+          div.circle.active
+            img(src='/images/v2/plan.png')
+            span 精心
+          div.circle
+            img(src='/images/v2/develop.png')
+            span 细心
+          div.circle.last_circle
+            img(src='/images/v2/design.png')
+            span 用心
+
+
 
 
 block js
   script(src='/bower_components/jquery/dist/jquery.min.js')
   script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
   script(src='/javascripts/v2/theme.js')
-  script(src='/javascripts/v2/slider.js')
+  script(src='/javascripts/v2/flexslider.js')
