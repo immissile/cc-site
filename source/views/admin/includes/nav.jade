@@ -8,6 +8,13 @@
         li
           a(href="/admin") 商务合作
 
+      if active.contact
+        li.active
+          a(href="/admin/contact") 联系我们
+      else
+        li
+          a(href="/admin/contact") 联系我们
+
       if active.hr
         li.active
           a(href="/admin/hr") 招聘相关

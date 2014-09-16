@@ -10,13 +10,13 @@ block css
   <![endif]-->
 
 block page 
-  div.page.cooperation-page
+  div.page.contact-page
     include includes/header
     include includes/nav
     .container
       .content
-        if cooperations.length
-          p.total 共有#{cooperations.length}条记录 #{message}
+        if contact.length
+          p.total 共有#{contact.length}条记录 #{message}
             small(style="padding-left: 20px;color:#c43;") #{message}
             table
               thead
@@ -25,16 +25,21 @@ block page
                 th 姓名
                 th 联系电话
                 th.c-company-name 公司名称
+                th 邮箱
                 th 操作
-              each item, index in cooperations
+              each item, index in contact
                 tr
                   td #{index+1}
                   td #{moment(item.meta.createAt).format('YYYY-MM-DD H:m')}
                   td #{item.name}
-                  td #{item.mobile}
+                  td #{item.phone}
                   td #{item.company} 
+                  td #{item.email}
                   td
                     button.btn.btn-danger.btn-del(data-id="#{item._id}") 删除
+                tr
+                  td(width='100') 
+                  td.align-left(colspan='6') 备注信息： #{item.remark}
         else
           p(style="padding-top: 30px;color:#777;") 暂无商务合作数据
 

@@ -1,0 +1,19 @@
+extends base
+
+block css
+  link(rel='stylesheet', href='/stylesheets/#{global.site.version}/message.css')
+
+block page 
+  #message
+    .container
+      .box.msg-box
+        h2 #{result.message}
+        a(href="#{result.url || '/'}") 返回
+        &nbsp;&nbsp;&nbsp;
+        a(href="/") 回到首页
+
+
+block js
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/javascripts/v2/theme.js')

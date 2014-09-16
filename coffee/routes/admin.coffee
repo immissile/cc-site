@@ -6,6 +6,7 @@ hash = require('../pass').hash
 Cooperation = require("../models/cooperation")
 User = require("../models/user")
 Hr = require("../models/hr")
+Contact = require("../models/contact")
 
 exports.index = (req, res) ->
   if !req.session.user
@@ -102,6 +103,17 @@ exports.deleteCooperation = (req, res) ->
         res.json
           success: 1
   
+exports.deleteContact = (req, res) ->
+  id = req.query.id
+  if id
+    Contact.remove
+      _id: id
+    , (err, user) ->
+      if err
+        console.log err
+      else
+        res.json
+          success: 1
 
 exports.hr = (req, res) ->
   Hr.findIt (err, hr) ->
@@ -146,3 +158,18 @@ exports.postHr = (req, res) ->
         console.log err
       else
         res.redirect "/admin/hr"
+
+exports.contact = (req, res) ->
+  if !req.session.user
+    res.redirect "/admin/login"
+    
+  Contact.fetch (err, contact) ->
+    if err
+      console.log err
+    
+    res.render "admin/contact",
+      title: "管理后台 - 云信"
+      active:
+        contact: true
+      contact: contact
+      moment: moment

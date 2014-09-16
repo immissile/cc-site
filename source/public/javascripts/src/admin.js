@@ -39,7 +39,7 @@
         return pass($password);
       }
     });
-    return $("button.btn-del").click(function() {
+    $(".cooperation-page button.btn-del").click(function() {
       var $tr, id;
       id = $(this).data("id");
       $tr = $(this).parent().parent();
@@ -51,6 +51,26 @@
           if (results.success === 1) {
             if ($tr.length > 0) {
               return $tr.fadeOut(function() {
+                return $tr.remove();
+              });
+            }
+          }
+        });
+      }
+    });
+    return $(".contact-page button.btn-del").click(function() {
+      var $tr, id;
+      id = $(this).data("id");
+      $tr = $(this).parent().parent();
+      if (confirm("确认删除？")) {
+        return $.ajax({
+          type: "DELETE",
+          url: "/admin/contact?id=" + id
+        }).done(function(results) {
+          if (results.success === 1) {
+            if ($tr.length > 0) {
+              return $tr.fadeOut(function() {
+                $tr.next().remove();
                 return $tr.remove();
               });
             }

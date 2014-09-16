@@ -1,5 +1,5 @@
 (function() {
-  var Cooperation, Hr, User, access, hash, moment;
+  var Contact, Cooperation, Hr, User, access, hash, moment;
 
   moment = require("moment");
 
@@ -12,6 +12,8 @@
   User = require("../models/user");
 
   Hr = require("../models/hr");
+
+  Contact = require("../models/contact");
 
   exports.index = function(req, res) {
     if (!req.session.user) {
@@ -146,6 +148,24 @@
     }
   };
 
+  exports.deleteContact = function(req, res) {
+    var id;
+    id = req.query.id;
+    if (id) {
+      return Contact.remove({
+        _id: id
+      }, function(err, user) {
+        if (err) {
+          return console.log(err);
+        } else {
+          return res.json({
+            success: 1
+          });
+        }
+      });
+    }
+  };
+
   exports.hr = function(req, res) {
     return Hr.findIt(function(err, hr) {
       var btnText;
@@ -205,6 +225,25 @@
         }
       });
     }
+  };
+
+  exports.contact = function(req, res) {
+    if (!req.session.user) {
+      res.redirect("/admin/login");
+    }
+    return Contact.fetch(function(err, contact) {
+      if (err) {
+        console.log(err);
+      }
+      return res.render("admin/contact", {
+        title: "管理后台 - 云信",
+        active: {
+          contact: true
+        },
+        contact: contact,
+        moment: moment
+      });
+    });
   };
 
 }).call(this);

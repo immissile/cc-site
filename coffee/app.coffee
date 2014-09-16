@@ -93,7 +93,11 @@ app.get "/product", product.index
 app.get "/services", services.index
 app.get "/customers", customers.index
 app.get "/team", team.index
+
+# contact
 app.get "/contact", contact.index
+app.post "/contact", contact.new
+app.get "/contact/succ", contact.succ
 
 # detail 
 #app.get "/detail*?", detail.list
@@ -113,6 +117,8 @@ app.get "/admin/setup", admin.setup
 app.post "/admin/setup", access.userExist, admin.postSetup
 app.get "/admin/hr", access.requiredAuthentication, admin.hr
 app.post "/admin/hr", access.requiredAuthentication, admin.postHr
+app.get "/admin/contact", access.requiredAuthentication, admin.contact
+app.delete "/admin/contact", access.requiredAuthentication, admin.deleteContact
 
 # api
 app.get "/api/recruitment", api.recruitment

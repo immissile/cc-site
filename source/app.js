@@ -121,6 +121,10 @@ App Interface
 
   app.get("/contact", contact.index);
 
+  app.post("/contact", contact["new"]);
+
+  app.get("/contact/succ", contact.succ);
+
   app.get("/cooperation", cooperation.index);
 
   app.post("/cooperation/new", cooperation["new"]);
@@ -144,6 +148,10 @@ App Interface
   app.get("/admin/hr", access.requiredAuthentication, admin.hr);
 
   app.post("/admin/hr", access.requiredAuthentication, admin.postHr);
+
+  app.get("/admin/contact", access.requiredAuthentication, admin.contact);
+
+  app["delete"]("/admin/contact", access.requiredAuthentication, admin.deleteContact);
 
   app.get("/api/recruitment", api.recruitment);
 

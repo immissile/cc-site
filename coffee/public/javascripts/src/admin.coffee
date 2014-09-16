@@ -39,7 +39,7 @@ define (require) ->
       pass $password
 
 
-  $("button.btn-del").click ->
+  $(".cooperation-page button.btn-del").click ->
     id = $(@).data "id"
     $tr = $(@).parent().parent()
 
@@ -51,4 +51,20 @@ define (require) ->
         if results.success == 1
           if $tr.length > 0
             $tr.fadeOut ->
+              $tr.remove()
+
+
+  $(".contact-page button.btn-del").click ->
+    id = $(@).data "id"
+    $tr = $(@).parent().parent()
+
+    if confirm "确认删除？"
+      $.ajax
+        type: "DELETE"
+        url: "/admin/contact?id=" + id
+      .done (results) ->
+        if results.success == 1
+          if $tr.length > 0
+            $tr.fadeOut ->
+              $tr.next().remove()
               $tr.remove()

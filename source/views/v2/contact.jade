@@ -10,17 +10,19 @@ block page
         h3 联系我们
       .row.contact
         p 留下您的联络方式，我们会及时联系您！
-        form
+        if error
+          p.text-error 注意：#{error}
+        form#contact-form(method="post", action="/contact")
           .row.form
             .col-sm-6.row-col
               .box
-                input.name.form-control(type='text', name='name', placeholder='姓名/称呼')
-                input.mail.form-control(type='text', name='email', placeholder='电子邮箱')
-                input.phone.form-control(type='text', name='phone', placeholder='手机号码')
-                input.company.form-control(type='text', name='company', placeholder='公司名称')
+                input.name.form-control(type='text', name='contact[name]', placeholder='姓名/称呼')
+                input.mail.form-control(type='text', name='contact[email]', placeholder='电子邮箱')
+                input.phone.form-control(type='text', name='contact[phone]', placeholder='手机号码')
+                input.company.form-control(type='text', name='contact[company]', placeholder='公司名称')
             .col-sm-6
               .box
-                textarea.form-control(name='remark', placeholder='备注信息')
+                textarea.remark.form-control(name='contact[remark]', placeholder='备注信息')
           .row.submit
             .col-md-5.box
             .col-md-3.right
@@ -44,4 +46,4 @@ block page
 block js
   script(src='/bower_components/jquery/dist/jquery.min.js')
   script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
-  script(src='/javascripts/v2/theme.js')
+  script(src='/javascripts/v2/contact.js')
