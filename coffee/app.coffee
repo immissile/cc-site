@@ -119,6 +119,8 @@ app.get "/admin/hr", access.requiredAuthentication, admin.hr
 app.post "/admin/hr", access.requiredAuthentication, admin.postHr
 app.get "/admin/contact", access.requiredAuthentication, admin.contact
 app.delete "/admin/contact", access.requiredAuthentication, admin.deleteContact
+app.get "/admin/account", access.requiredAuthentication, admin.account
+app.post "/admin/account", access.requiredAuthentication, admin.postNewAccount
 
 # api
 app.get "/api/recruitment", api.recruitment

@@ -15,7 +15,7 @@ define (require) ->
       $(@).removeClass "error"
       $(@).removeClass "succ"
 
-  $("form").submit (e)->
+  $(".setup-page form").submit (e)->
 
     notice = (obj) ->
       e.preventDefault()

@@ -16,7 +16,7 @@
       $(this).removeClass("error");
       return $(this).removeClass("succ");
     });
-    $("form").submit(function(e) {
+    $(".setup-page form").submit(function(e) {
       var $name, $password, notice, pass;
       notice = function(obj) {
         e.preventDefault();

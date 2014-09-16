@@ -7,11 +7,22 @@
     name: String,
     password: String,
     admin: String,
+    dec: String,
+    available: Boolean,
     salt: String,
-    hash: String
+    hash: String,
+    meta: {
+      createAt: {
+        type: Date,
+        "default": Date.now()
+      }
+    }
   });
 
   UserSchema.pre("save", function(next) {
+    if (this.isNew) {
+      this.meta.createAt = this.meta.createAt = Date.now();
+    }
     return next();
   });
 

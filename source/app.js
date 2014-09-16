@@ -153,6 +153,10 @@ App Interface
 
   app["delete"]("/admin/contact", access.requiredAuthentication, admin.deleteContact);
 
+  app.get("/admin/account", access.requiredAuthentication, admin.account);
+
+  app.post("/admin/account", access.requiredAuthentication, admin.postNewAccount);
+
   app.get("/api/recruitment", api.recruitment);
 
   app.get("/joinUs.html", joinUs.index);

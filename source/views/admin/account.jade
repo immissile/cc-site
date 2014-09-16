@@ -1,0 +1,76 @@
+extends includes/base
+
+block title
+  title= title
+
+block css
+  link(rel='stylesheet', href='/stylesheets/admin.css')
+  <!--[if lt IE 9]>
+  link(rel='stylesheet', href='/stylesheets/ie.css')
+  <![endif]-->
+
+block page 
+  div.page.account-page
+    include includes/header
+    include includes/nav
+    .container
+      .content
+        .row
+          .col-md-7
+            if account.length
+              p 共有#{account.length}条记录 
+                table
+                  thead
+                    th 序号
+                    th.c-name 姓名
+                    th 级别
+                    th.c-time 创建时间
+                    th.m-panel 操作
+                  each item, index in account
+                    tr
+                      td #{index+1}
+                      td #{item.name} <br> <span class='dec'>#{item.dec}</span>
+                      td
+                        if item.admin == 1
+                          span.label.label-primary 超级管理员
+                        else
+                          span.label.label-default 普通管理员
+                      td 
+                        if item.meta
+                          | #{moment(item.meta.createAt).format('YYYY-MM-DD')}
+                        else
+                          | 初始化创建
+                      td
+                        button.btn.btn-primary.modify-del(data-id="#{item._id}") 修改
+                        button.btn.btn-danger.btn-del(data-id="#{item._id}") 删除
+            else
+              p(style="color:#777;") 暂无账号信息
+          .col-md-5
+            div
+              if message
+                p(style='color: #{message.color}') 提示：#{message.content} 
+              form.form-horizontal(method='post', action='/admin/account')
+                .form-group
+                  label.col-sm-2.control-label(for='inputEmail3') 账号 
+                  .col-sm-10
+                    input#inputEmail3.form-control(type='text', name='user[name]', autocomplete='off', placeholder='登录账号')
+                .form-group
+                  label.col-sm-2.control-label(for='inputPassword3') 密码
+                  .col-sm-10
+                    input#inputPassword3.form-control(type='password', name='user[password]', placeholder='登录密码')
+                .form-group
+                  label.col-sm-2.control-label(for='inputEmail3') 描述 
+                  .col-sm-10
+                    input#inputEmail3.form-control(type='text', name='user[dec]', placeholder='账号描述，如：招聘专用账号')
+                .form-group
+                  .col-sm-offset-2.col-sm-10
+                    button.btn.btn-default(type='submit') 创建管理员账号
+
+            
+
+block js
+  script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
+  script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
+  script(src='/javascripts/common/config.js')
+  script seajs.use('/javascripts/src/admin.js');
+

@@ -61,6 +61,8 @@
       return _user = new User({
         name: name,
         admin: 1,
+        dec: "超级管理员",
+        available: true,
         salt: salt,
         hash: hash
       }).save(function(err, newUser) {
@@ -242,6 +244,79 @@
         },
         contact: contact,
         moment: moment
+      });
+    });
+  };
+
+  exports.account = function(req, res) {
+    if (!req.session.user) {
+      return res.redirect("/admin/login");
+    } else {
+      return User.fetch(function(err, user) {
+        var message;
+        if (err) {
+          console.log(err);
+        }
+        if (req.query.msg !== void 0) {
+          if (req.query.msg === 'REQUIRE') {
+            message = {
+              color: '#c43',
+              content: "账号密码不能为空"
+            };
+          } else if (req.query.msg === 'SUCC') {
+            message = {
+              color: 'green',
+              content: "账号创建成功"
+            };
+          }
+        }
+        return res.render("admin/account", {
+          title: "管理后台 - 云中信",
+          active: {
+            account: true
+          },
+          account: user,
+          moment: moment,
+          message: message
+        });
+      });
+    }
+  };
+
+  exports.postNewAccount = function(req, res) {
+    var obj;
+    obj = req.body.user;
+    console.log("!!!!!!!", obj);
+    if (obj.name === '' || obj.password === '') {
+      res.redirect("/admin/account?msg=REQUIRE");
+      return;
+    }
+    return hash(obj.password, function(err, salt, hash) {
+      var _user;
+      if (err) {
+        throw err;
+      }
+      return _user = new User({
+        name: obj.name,
+        admin: 2,
+        dec: obj.dec || "普通管理员",
+        available: true,
+        salt: salt,
+        hash: hash
+      }).save(function(err, newUser) {
+        if (err) {
+          throw err;
+        }
+        return access.authenticate(newUser.name, obj.password, function(err, user) {
+          if (err) {
+            res.render("admin/error", {
+              msg: err
+            });
+          }
+          if (user) {
+            return res.redirect("/admin/account?msg=SUCC");
+          }
+        });
       });
     });
   };

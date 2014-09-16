@@ -44,6 +44,8 @@ exports.postSetup = (req, res) ->
     _user = new User
       name: name
       admin: 1
+      dec: "超级管理员"
+      available: true
       salt: salt
       hash: hash
     .save (err, newUser) ->
@@ -173,3 +175,62 @@ exports.contact = (req, res) ->
         contact: true
       contact: contact
       moment: moment
+
+# 账号管理
+exports.account = (req, res) ->
+  if !req.session.user
+    res.redirect "/admin/login"
+  else
+    User.fetch (err, user) ->
+      if err
+        console.log err
+
+      if req.query.msg != undefined
+        if req.query.msg == 'REQUIRE'
+          message =
+            color: '#c43'
+            content: "账号密码不能为空"
+        else if req.query.msg == 'SUCC'
+          message =
+            color: 'green'
+            content: "账号创建成功"
+
+      res.render "admin/account",
+        title: "管理后台 - 云中信"
+        active:
+          account: true
+        account: user
+        moment: moment
+        message: message
+
+exports.postNewAccount = (req, res) ->
+  obj = req.body.user
+  console.log "!!!!!!!", obj
+  if(
+    obj.name == '' or
+    obj.password == ''
+  )
+    res.redirect "/admin/account?msg=REQUIRE"
+    return
+
+  hash obj.password, (err, salt, hash) ->
+    if err
+      throw err
+    _user = new User
+      name: obj.name
+      admin: 2
+      dec: obj.dec or "普通管理员"
+      available: true
+      salt: salt
+      hash: hash
+    .save (err, newUser) ->
+      if err
+        throw err
+      access.authenticate newUser.name, obj.password, (err, user) ->
+        if err
+          res.render "admin/error",
+            msg: err
+        if user
+          res.redirect "/admin/account?msg=SUCC"
+
+
