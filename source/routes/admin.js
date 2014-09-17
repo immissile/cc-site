@@ -19,11 +19,25 @@
     if (!req.session.user) {
       res.redirect("/admin/login");
     }
+    return res.render("admin/index", {
+      title: "管理后台 - 云信",
+      hehe: 'he-he-he',
+      active: {}
+    });
+  };
+
+  exports.cooperation = function(req, res) {
+    if (!req.session.user) {
+      res.redirect("/admin/login");
+    }
+    if (!global.HavePermission(req.session.user.name, 'cooperation')) {
+      res.redirect("/admin");
+    }
     return Cooperation.fetch(function(err, cooperations) {
       if (err) {
         console.log(err);
       }
-      return res.render("admin/index", {
+      return res.render("admin/cooperation", {
         title: "管理后台 - 云信",
         active: {
           cooperation: true
@@ -169,6 +183,9 @@
   };
 
   exports.hr = function(req, res) {
+    if (!global.HavePermission(req.session.user.name, 'hr')) {
+      res.redirect("/admin");
+    }
     return Hr.findIt(function(err, hr) {
       var btnText;
       if (err) {
@@ -233,6 +250,9 @@
     if (!req.session.user) {
       res.redirect("/admin/login");
     }
+    if (!global.HavePermission(req.session.user.name, 'contact')) {
+      res.redirect("/admin");
+    }
     return Contact.fetch(function(err, contact) {
       if (err) {
         console.log(err);
@@ -252,6 +272,9 @@
     if (!req.session.user) {
       return res.redirect("/admin/login");
     } else {
+      if (!global.HavePermission(req.session.user.name, 'account')) {
+        res.redirect("/admin");
+      }
       return User.fetch(function(err, user) {
         var message;
         if (err) {

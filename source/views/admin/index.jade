@@ -15,32 +15,15 @@ block page
     include includes/nav
     .container
       .content
-        if cooperations.length
-          p.total 共有#{cooperations.length}条记录 #{message}
-            small(style="padding-left: 20px;color:#c43;") #{message}
-            table
-              thead
-                th 序号
-                th.c-time 提交时间
-                th 姓名
-                th 联系电话
-                th.c-company-name 公司名称
-                th 操作
-              each item, index in cooperations
-                tr
-                  td #{index+1}
-                  td #{moment(item.meta.createAt).format('YYYY-MM-DD H:m')}
-                  td #{item.name}
-                  td #{item.mobile}
-                  td #{item.company} 
-                  td
-                    button.btn.btn-danger.btn-del(data-id="#{item._id}") 删除
-        else
-          p(style="padding-top: 30px;color:#777;") 暂无商务合作数据
+        h3 管理后台首页
+        ul
+          li 网站总PV：3422342
+          li 今日PV：232
+          li 新增商务合作：3
+          li 新增留言：5
 
 block js
   script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
   script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
   script(src='/javascripts/common/config.js')
-  script seajs.use('/javascripts/src/admin.js');
 

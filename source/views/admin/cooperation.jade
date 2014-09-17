@@ -1,0 +1,46 @@
+extends includes/base
+
+block title
+  title= title
+
+block css
+  link(rel='stylesheet', href='/stylesheets/admin.css')
+  <!--[if lt IE 9]>
+  link(rel='stylesheet', href='/stylesheets/ie.css')
+  <![endif]-->
+
+block page 
+  div.page.cooperation-page
+    include includes/header
+    include includes/nav
+    .container
+      .content
+        if cooperations.length
+          p.total 共有#{cooperations.length}条记录 #{message}
+            small(style="padding-left: 20px;color:#c43;") #{message}
+            table
+              thead
+                th 序号
+                th.c-time 提交时间
+                th 姓名
+                th 联系电话
+                th.c-company-name 公司名称
+                th 操作
+              each item, index in cooperations
+                tr
+                  td #{index+1}
+                  td #{moment(item.meta.createAt).format('YYYY-MM-DD H:m')}
+                  td #{item.name}
+                  td #{item.mobile}
+                  td #{item.company} 
+                  td
+                    button.btn.btn-danger.btn-del(data-id="#{item._id}") 删除
+        else
+          p(style="padding-top: 30px;color:#777;") 暂无商务合作数据
+
+block js
+  script(src='/sea-modules/seajs/seajs/2.1.1/sea.js')
+  script(src='/sea-modules/seajs/seajs-text/1.0.2/seajs-text.js')
+  script(src='/javascripts/common/config.js')
+  script seajs.use('/javascripts/src/admin.js');
+

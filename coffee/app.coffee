@@ -1,5 +1,4 @@
 ###
-Module dependencies.
 App Interface
 ###
 
@@ -12,6 +11,11 @@ app = express()
 
 ## global config
 global.site = require("../config.json")
+
+# access map
+_map = require("./map")
+global.AccessMap = _map.AccessMap
+global.HavePermission = _map.HavePermission
 
 # init mongo
 mongoose.connect('mongodb://127.0.0.1:27017/creditcloud')
@@ -109,6 +113,7 @@ app.get "/cooperation/succ", cooperation.succ
 
 # 管理后台
 app.get "/admin", access.requiredAuthentication, admin.index
+app.get "/admin/cooperation", access.requiredAuthentication, admin.cooperation
 app.delete "/admin/cooperation", access.requiredAuthentication, admin.deleteCooperation
 app.get "/admin/login", admin.login
 app.post "/admin/login", admin.postLogin

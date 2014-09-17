@@ -1,11 +1,10 @@
 /*
-Module dependencies.
 App Interface
 */
 
 
 (function() {
-  var Cooperation, access, admin, api, app, contact, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team;
+  var Cooperation, access, admin, api, app, contact, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team, _map;
 
   express = require("express");
 
@@ -20,6 +19,12 @@ App Interface
   app = express();
 
   global.site = require("../config.json");
+
+  _map = require("./map");
+
+  global.AccessMap = _map.AccessMap;
+
+  global.HavePermission = _map.HavePermission;
 
   mongoose.connect('mongodb://127.0.0.1:27017/creditcloud');
 
@@ -132,6 +137,8 @@ App Interface
   app.get("/cooperation/succ", cooperation.succ);
 
   app.get("/admin", access.requiredAuthentication, admin.index);
+
+  app.get("/admin/cooperation", access.requiredAuthentication, admin.cooperation);
 
   app["delete"]("/admin/cooperation", access.requiredAuthentication, admin.deleteCooperation);
 

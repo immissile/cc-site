@@ -11,12 +11,23 @@ Contact = require("../models/contact")
 exports.index = (req, res) ->
   if !req.session.user
     res.redirect "/admin/login"
+  res.render "admin/index",
+    title: "管理后台 - 云信"
+    hehe: 'he-he-he'
+    active: {}
+
+exports.cooperation = (req, res) ->
+  if !req.session.user
+    res.redirect "/admin/login"
+
+  if !global.HavePermission req.session.user.name, 'cooperation'
+    res.redirect "/admin"
 
   Cooperation.fetch (err, cooperations) ->
     if err
       console.log err
     
-    res.render "admin/index",
+    res.render "admin/cooperation",
       title: "管理后台 - 云信"
       active:
         cooperation: true
@@ -118,6 +129,9 @@ exports.deleteContact = (req, res) ->
           success: 1
 
 exports.hr = (req, res) ->
+  if !global.HavePermission req.session.user.name, 'hr'
+    res.redirect "/admin"
+
   Hr.findIt (err, hr) ->
     if err
       console.log err
@@ -164,6 +178,9 @@ exports.postHr = (req, res) ->
 exports.contact = (req, res) ->
   if !req.session.user
     res.redirect "/admin/login"
+
+  if !global.HavePermission req.session.user.name, 'contact'
+    res.redirect "/admin"
     
   Contact.fetch (err, contact) ->
     if err
@@ -181,6 +198,9 @@ exports.account = (req, res) ->
   if !req.session.user
     res.redirect "/admin/login"
   else
+    if !global.HavePermission req.session.user.name, 'account'
+      res.redirect "/admin"
+
     User.fetch (err, user) ->
       if err
         console.log err

@@ -1,30 +1,37 @@
 .nav.main-nav
   .main-nav-in
     ul
-      if active.cooperation
-        li.active
-          a(href="/admin") 商务合作
-      else
-        li
-          a(href="/admin") 商务合作
+      li
+        a(href='/admin') 后台首页
 
-      if active.contact
-        li.active
-          a(href="/admin/contact") 联系我们
-      else
-        li
-          a(href="/admin/contact") 联系我们
+      if global.HavePermission(user.name, 'cooperation')
+        if active.cooperation
+          li.active
+            a(href="/admin/cooperation") 商务合作
+        else
+          li
+            a(href="/admin/cooperation") 商务合作
 
-      if active.hr
-        li.active
-          a(href="/admin/hr") 招聘相关
-      else
-        li
-          a(href="/admin/hr") 招聘相关
+      if global.HavePermission(user.name, 'contact')
+        if active.contact
+          li.active
+            a(href="/admin/contact") 联系我们
+        else
+          li
+            a(href="/admin/contact") 联系我们
 
-      if active.account
-        li.active
-          a(href="/admin/account") 账号管理
-      else
-        li
-          a(href="/admin/account") 账号管理
+      if global.HavePermission(user.name, 'hr')
+        if active.hr
+          li.active
+            a(href="/admin/hr") 招聘相关
+        else
+          li
+            a(href="/admin/hr") 招聘相关
+
+      if global.HavePermission(user.name, 'account')
+        if active.account
+          li.active
+            a(href="/admin/account") 账号管理
+        else
+          li
+            a(href="/admin/account") 账号管理
