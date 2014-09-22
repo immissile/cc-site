@@ -44,7 +44,8 @@ App Interface
 
   app.configure("development", function() {
     app.use(express.errorHandler());
-    return app.locals.pretty = true;
+    app.locals.pretty = true;
+    return app.use(app.router);
   });
 
   app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));
@@ -85,6 +86,24 @@ App Interface
   }));
 
   app.use(express["static"](path.join(__dirname, "public")));
+
+  app.use(express.compress({
+    filter: function(req, res) {
+      return /json|text|javascript|css/.test(res.getHeader('Content-Type'));
+    },
+    level: 9
+  }));
+
+  app.use(express.csrf());
+
+  app.use(function(req, res, next) {
+    if (req.session) {
+      res.locals.csrf = req.session._csrf;
+    } else {
+      res.locals.csrf = "";
+    }
+    return next();
+  });
 
   if ("development" === app.get("env")) {
     app.use(express.errorHandler());
@@ -167,6 +186,14 @@ App Interface
   app.get("/api/recruitment", api.recruitment);
 
   app.get("/joinUs.html", joinUs.index);
+
+  /*
+  app.get "*", (req, res) ->
+    res.render global.site.version + '/404',
+      status: 404
+      title: 'file not found'
+  */
+
 
   http.createServer(app).listen(app.get("port"), function() {
     return console.log("Express server listening on port " + app.get("port"));

@@ -36,6 +36,7 @@ app.configure "development", ->
   # 压缩html
   app.locals.pretty = true
   #app.locals.pretty = false
+  app.use app.router
 
 app.use(express.favicon(path.join(__dirname,'public/images/favicon.ico')))
 app.use express.logger("dev")
@@ -72,6 +73,19 @@ app.use(
   )
 )
 app.use express.static(path.join(__dirname, "public"))
+
+app.use express.compress
+  filter: (req, res) ->
+    return /json|text|javascript|css/.test(res.getHeader('Content-Type'))
+  level: 9
+
+app.use express.csrf()
+app.use (req, res, next) ->
+  if req.session
+    res.locals.csrf = req.session._csrf
+  else
+    res.locals.csrf = ""
+  next()
 
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")
@@ -132,6 +146,13 @@ app.get "/api/recruitment", api.recruitment
 
 #joinUs
 app.get "/joinUs.html", joinUs.index
+
+###
+app.get "*", (req, res) ->
+  res.render global.site.version + '/404',
+    status: 404
+    title: 'file not found'
+###
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

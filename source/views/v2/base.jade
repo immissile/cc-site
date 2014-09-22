@@ -25,6 +25,7 @@ html
     block define
       include const
   body(class="#{typeof bodyClass == 'undefined' ? 'pull_top':bodyClass}")
+    input(type="hidden", name="_csrf", value="#{locals.csrf}")
     block preBody
     include header
 
