@@ -79,14 +79,6 @@ app.use express.compress
     return /json|text|javascript|css/.test(res.getHeader('Content-Type'))
   level: 9
 
-app.use express.csrf()
-app.use (req, res, next) ->
-  if req.session
-    res.locals.csrf = req.session._csrf
-  else
-    res.locals.csrf = ""
-  next()
-
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")
 
