@@ -31,10 +31,10 @@
   };
 
   exports.AccessMap = {
-    cooperation: ['admin', 'missile'],
-    contact: ['admin', 'missile'],
-    hr: ['admin', 'hr'],
-    account: ['admin']
+    cooperation: ['ccadmin', 'admin', 'missile'],
+    contact: ['ccadmin', 'admin', 'missile'],
+    hr: ['ccadmin', 'admin', 'hr'],
+    account: ['ccadmin', 'admin']
   };
 
 }).call(this);
