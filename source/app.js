@@ -26,7 +26,7 @@ App Interface
 
   global.HavePermission = _map.HavePermission;
 
-  mongoose.connect('mongodb://127.0.0.1:27017/creditcloud');
+  mongoose.connect('mongodb://127.0.0.1:27017/imooc');
 
   access = require("./access");
 

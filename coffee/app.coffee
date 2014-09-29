@@ -18,7 +18,8 @@ global.AccessMap = _map.AccessMap
 global.HavePermission = _map.HavePermission
 
 # init mongo
-mongoose.connect('mongodb://127.0.0.1:27017/creditcloud')
+#mongoose.connect('mongodb://127.0.0.1:27017/creditcloud')
+mongoose.connect('mongodb://127.0.0.1:27017/imooc')
 
 access = require("./access")
 
