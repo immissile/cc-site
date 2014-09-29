@@ -27,20 +27,6 @@ app.use(express.bodyParser())
 app.use(express.cookieParser('Authentication Tutorial '))
 app.use(express.session())
 
-# compress html or not
-app.configure "development", ->
-  app.use express.errorHandler()
-  # 压缩html
-  app.locals.pretty = true
-  #app.locals.pretty = false
-  app.use app.router
-
-app.use(express.favicon(path.join(__dirname,'public/images/favicon.ico')))
-app.use express.logger("dev")
-app.use express.json()
-app.use express.urlencoded()
-app.use express.methodOverride()
-
 app.use (req, res, next) ->
   err = req.session.error
   msg = req.session.success
@@ -52,6 +38,21 @@ app.use (req, res, next) ->
   res.locals.error = err
 
   next()
+
+
+# compress html or not
+app.configure "development", ->
+  app.use express.errorHandler()
+  # 压缩html
+  #app.locals.pretty = true
+  app.locals.pretty = false
+  app.use app.router
+
+app.use(express.favicon(path.join(__dirname,'public/images/favicon.ico')))
+app.use express.logger("dev")
+app.use express.json()
+app.use express.urlencoded()
+app.use express.methodOverride()
 
 global.active = {}
 global.setNav = (_nav) ->

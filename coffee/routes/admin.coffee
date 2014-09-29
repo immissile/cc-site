@@ -13,7 +13,6 @@ exports.index = (req, res) ->
     res.redirect "/admin/login"
   res.render "admin/index",
     title: "管理后台 - 云信"
-    hehe: 'he-he-he'
     active: {}
 
 exports.cooperation = (req, res) ->

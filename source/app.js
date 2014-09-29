@@ -37,9 +37,20 @@
 
   app.use(express.session());
 
+  app.use(function(req, res, next) {
+    var err, msg;
+    err = req.session.error;
+    msg = req.session.success;
+    delete req.session.error;
+    delete req.session.success;
+    res.locals.user = req.session.user;
+    res.locals.error = err;
+    return next();
+  });
+
   app.configure("development", function() {
     app.use(express.errorHandler());
-    app.locals.pretty = true;
+    app.locals.pretty = false;
     return app.use(app.router);
   });
 
@@ -52,17 +63,6 @@
   app.use(express.urlencoded());
 
   app.use(express.methodOverride());
-
-  app.use(function(req, res, next) {
-    var err, msg;
-    err = req.session.error;
-    msg = req.session.success;
-    delete req.session.error;
-    delete req.session.success;
-    res.locals.user = req.session.user;
-    res.locals.error = err;
-    return next();
-  });
 
   global.active = {};
 

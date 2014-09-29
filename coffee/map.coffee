@@ -23,17 +23,21 @@ exports.HavePermission = (uname, page,  map) ->
 
 exports.AccessMap =
   cooperation: [
+    'ccadmin'
     'admin'
     'missile'
   ]
   contact: [
+    'ccadmin'
     'admin'
     'missile'
   ]
   hr: [
+    'ccadmin'
     'admin'
     'hr'
   ]
   account: [
+    'ccadmin'
     'admin'
   ]
