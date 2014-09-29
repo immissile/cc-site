@@ -1,8 +1,3 @@
-/*
-App Interface
-*/
-
-
 (function() {
   var Cooperation, access, admin, api, app, contact, cooperation, customers, detail, express, http, joinUs, mongoose, path, product, routes, services, team, _map;
 
