@@ -293,7 +293,7 @@
           }
         }
         return res.render("admin/account", {
-          title: "管理后台 - 云中信",
+          title: "管理后台 - 云信",
           active: {
             account: true
           },
