@@ -1,5 +1,10 @@
 {
   "version": "v2",
   "title": "云信",
-  "lang": "zh-CN"
+  "lang": "zh-CN",
+  "analytics": {
+    "baidu": true,
+    "google": true,
+    "push": true
+  }
 }
