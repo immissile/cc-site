@@ -222,6 +222,29 @@ exports.account = (req, res) ->
         moment: moment
         message: message
 
+exports.missile = (req, res) ->
+  User.fetch (err, user) ->
+    if err
+      console.log err
+  
+    if req.query.msg != undefined
+      if req.query.msg == 'REQUIRE'
+        message =
+          color: '#c43'
+          content: "账号密码不能为空"
+      else if req.query.msg == 'SUCC'
+        message =
+          color: 'green'
+          content: "账号创建成功"
+
+    res.render "admin/missile",
+      title: "管理后台 - 云信"
+      active:
+        account: true
+      account: user
+      moment: moment
+      message: message
+
 exports.postNewAccount = (req, res) ->
   obj = req.body.user
   console.log "!!!!!!!", obj
@@ -251,5 +274,27 @@ exports.postNewAccount = (req, res) ->
             msg: err
         if user
           res.redirect "/admin/account?msg=SUCC"
+
+
+exports.modifyAccount = (req, res) ->
+  obj = req.body.user
+  if(
+    obj.name == '' or
+    obj.password == ''
+  )
+    res.redirect "/admin/account?msg=REQUIRE"
+    return
+
+  hash obj.password, (err, salt, hash) ->
+    if err
+      throw err
+    updates =
+      $set:
+        salt: salt
+        hash: hash
+    #_user = new User()
+    User.update {_id: obj.id}, updates, {}, (err, newUser) ->
+      console.log('#####err', err, newUser)
+      res.redirect "/admin/missile?msg=SUCC"
 
 

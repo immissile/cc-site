@@ -305,6 +305,37 @@
     }
   };
 
+  exports.missile = function(req, res) {
+    return User.fetch(function(err, user) {
+      var message;
+      if (err) {
+        console.log(err);
+      }
+      if (req.query.msg !== void 0) {
+        if (req.query.msg === 'REQUIRE') {
+          message = {
+            color: '#c43',
+            content: "账号密码不能为空"
+          };
+        } else if (req.query.msg === 'SUCC') {
+          message = {
+            color: 'green',
+            content: "账号创建成功"
+          };
+        }
+      }
+      return res.render("admin/missile", {
+        title: "管理后台 - 云信",
+        active: {
+          account: true
+        },
+        account: user,
+        moment: moment,
+        message: message
+      });
+    });
+  };
+
   exports.postNewAccount = function(req, res) {
     var obj;
     obj = req.body.user;
@@ -339,6 +370,33 @@
             return res.redirect("/admin/account?msg=SUCC");
           }
         });
+      });
+    });
+  };
+
+  exports.modifyAccount = function(req, res) {
+    var obj;
+    obj = req.body.user;
+    if (obj.name === '' || obj.password === '') {
+      res.redirect("/admin/account?msg=REQUIRE");
+      return;
+    }
+    return hash(obj.password, function(err, salt, hash) {
+      var updates;
+      if (err) {
+        throw err;
+      }
+      updates = {
+        $set: {
+          salt: salt,
+          hash: hash
+        }
+      };
+      return User.update({
+        _id: obj.id
+      }, updates, {}, function(err, newUser) {
+        console.log('#####err', err, newUser);
+        return res.redirect("/admin/missile?msg=SUCC");
       });
     });
   };

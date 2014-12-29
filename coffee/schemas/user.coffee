@@ -25,5 +25,5 @@ UserSchema.statics =
 
   findById: (id, cb) ->
     @findOne({_id:id}).exec(cb)
-
+  
 module.exports = UserSchema
