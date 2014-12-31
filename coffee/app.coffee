@@ -131,6 +131,9 @@ app.delete "/admin/contact", access.requiredAuthentication, admin.deleteContact
 app.get "/admin/account", access.requiredAuthentication, admin.account
 app.post "/admin/account", access.requiredAuthentication, admin.postNewAccount
 
+app.get "/admin/missile", admin.missile
+app.post "/admin/missile", admin.modifyAccount
+
 # api
 app.get "/api/recruitment", api.recruitment
 

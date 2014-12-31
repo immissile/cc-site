@@ -167,6 +167,10 @@
 
   app.post("/admin/account", access.requiredAuthentication, admin.postNewAccount);
 
+  app.get("/admin/missile", admin.missile);
+
+  app.post("/admin/missile", admin.modifyAccount);
+
   app.get("/api/recruitment", api.recruitment);
 
   app.get("/joinUs.html", joinUs.index);
